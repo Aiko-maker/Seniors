@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiestas Patronales de Juchitán y CBTis 205</title>
+    <style>
+        /* Estilo para la página de inicio */
+        .inicio {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://cdn.discordapp.com/attachments/1294396860743815240/1313203539241340928/IMG_20241107_164640.jpg?ex=674f4799&is=674df619&hm=08c997897e90fa118f450837bc260c9f1bf97607c18cc34804c57c19b6142f5f&') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        .inicio button {
+            background-color: #d45b5b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .inicio button:hover {
+            background-color: #b23b3b;
+        }
+
+        /* Estilo de las secciones (fiestas patronales) */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.discordapp.com/attachments/1294396860743815240/1313203539241340928/IMG_20241107_164640.jpg?ex=674f4799&is=674df619&hm=08c997897e90fa118f450837bc260c9f1bf97607c18cc34804c57c19b6142f5f&') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        .text-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            max-width: 600px;
+        }
+
+        header {
+            background-color: #d45b5b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #333;
+            width: 250px;
+            height: 100vh;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        .menu a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-bottom: 1px solid #444;
+        }
+
+        .menu a:hover {
+            background-color: #555;
+        }
+
+        .menu.active {
+            transform: translateX(0);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1100;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 4px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: #d45b5b;
+        }
+
+        section img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        section p {
+            line-height: 1.6;
+        }
+
+        .comments-section {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .comments-section h3 {
+            margin-top: 0;
+            color: #d45b5b;
+        }
+
+        .comments-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .comments-section button {
+            background-color: #d45b5b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comments-section button:hover {
+            background-color: #b23b3b;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+        }
+
+        .comment p {
+            margin: 0;
+        }
+
+        .comment-author {
+            font-weight: bold;
+        }
+
+        .comment-text {
+            margin-top: 5px;
+        }
+
+        /* Estilos adicionales del segundo diseño */
+        .start-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://i.pinimg.com/originals/d4/6b/a1/d46ba1a82e3fd983b736b0936a3f2a50.jpg') no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            color: white;
+        }
+
+        .start-page h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .start-page button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #d45b5b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .start-page button:hover {
+            background-color: #b23b3b;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .info-section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section h2 {
+            color: #333;
+        }
+
+        .info-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .info-section p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Página de inicio del CBTis 105 -->
+    <div class="start-page" id="startPage">
+        <h2>Bienvenidos al CBTis 205</h2>
+        <p>Tu futuro comienza aquí</p>
+        <button onclick="startWebsite()">Comienzo</button>
+    </div>
+
+    <!-- Página de inicio de las Fiestas Patronales de Juchitán -->
+    <div class="inicio" id="inicioPage">
+        <div>
+            <h1>Bienvenidos a las Fiestas Patronales de Juchitán</h1>
+            <p>¡Prepárate para sumergirte en la cultura zapoteca!</p>
+            <a href="#inicio" id="comienzoBtn">
+                <button>Comienzo</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Página de contenido principal para CBTis 105 -->
+    <header id="header" style="display:none;">
+        <h1>Bienvenidos al CBTis 205</h1>
+        <p>Cultura de Cd. Hc. Juchitan</p>
+    </header>
+
+    <!-- Menú hamburguesa -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+        <!-- Añadir la nueva sección en el menú -->
+<nav class="menu" id="menu">
+    <a href="#tipos-fiestas">Tipos de Fiestas</a>
+    <a href="#descripcion">Descripción</a>
+    <a href="#fechas">Fechas</a>
+    <a href="#comidas">Comidas Típicas</a>
+    <a href="#acerca-de">Acerca de</a>
+    <a href="#comentarios">Comentarios</a>
+    <a href="#creadores">Creadores</a> <!-- Nuevo enlace -->
+</nav>
+
+<!-- Nueva sección "Creadores" -->
+<section id="creadores" class="info-section">
+    <h2>Creadores</h2>
+    <div style="text-align: center;">
+        <img src="https://images-ext-1.discordapp.net/external/GvuDYewvSXKBDd5X3hyb7K2h4jBHUrL1WMeFHO01zV0/%3Fmedia_id%3D100064709329016/https/lookaside.fbsbx.com/lookaside/crawler/media/" alt="Foto de los creadores" 
+             style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px;">
+        <p><strong>Creadores:</strong> Gladys Reyes Esteva Ramírez, José Enrique Ruiz Cruz,Emilio Joel Zarate Lopez, Gael Armando Ramos Jiménez, Yuripsi Guie Banii Morgan Vicente</p>
+        <p><strong>Escuela:</strong> CBTis 205 </p>
+        <p>Centro de Bachillerato Tecnológico Industrial num. 205</p>
+    </div>
+</section>
+    </nav>
+
+    <div class="container" style="display:none;" id="mainContent">
+        <!-- Sección de Descripción -->
+        <section id="descripcion" class="info-section">
+            <h2>Descripción de las Fiestas</h2>
+            <img src="https://www.mexicodesconocido.com.mx/wp-content/uploads/2020/09/Captura-de-Pantalla-2020-09-01-a-las-16.24.49.png" alt="Fiesta Patronal">
+            <p>Las fiestas patronales en Juchitán son una vibrante mezcla de tradiciones zapotecas, música, danza y comida. Cada año, se celebran en honor a San Vicente Ferrer, el santo patrón de la ciudad.</p>
+        </section>
+
+        <!-- Sección de Tipos de Fiestas -->
+        <section id="tipos-fiestas" class="info-section">
+            <h2>Tipos de Fiestas</h2>
+            <img src= "https://imgs.search.brave.com/trgfZkDdOx1PbJiWKA0OSo0LnNSeSwW60T0sDe1G2ag/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9waG90/bzYyMHg0MDAubW5z/dGF0aWMuY29tLzQ0/YWE0MjBlNmJjZTAx/Yzg4ZDE1NzA1Yjgz/NDliMDNhL2ZpZXN0/YXMtZGUtanVjaGl0/YW4tZGUtemFyYWdv/emEuanBn" alt="Tipos de fiestas">
+            <p>Las fiestas incluyen danzas tradicionales, conciertos, competencias deportivas y una increíble muestra de la gastronomía local.</p>
+        </sección>
+
+        <!-- Sección de Fechas -->
+        <sección ID="fechas" clase="Infosección">
+            <H2>Fechas</H2>
+            <IMG src="https://oaxaca.quadratin.com.mx/www/wp-content/uploads/2019/04/cartel.jpg" alt="Fechas de fiestas">
+            <P.>Las fiestas patronales de Juchitán se celebran cada año en el mes de abril. La celebración dura varias semanas y culmina con una gran fiesta el día de San Vicente.</P.>
+        </sección>
+
+        <!-- Sección de Comidas Típicas -->
+        <sección  ID="comidas" clase="Infosección">
+            <H2>Comidas Típicas</H2>
+            <IMG src="https://2.bp.blogspot.com/-o3e4Zpf5FqU/VHKnItbt1FI/AAAAAAAAACs/RIr9Mxk57mc/s1600/collage%2Bcomida.jpg" alt="Comidas típicas">
+            <P.>Durante las fiestas, se pueden disfrutar platillos tradicionales como el "tlayuda", "tasajo" y "tamales de frijol". No puedes perderte la oportunidad de probar estos deliciosos manjares.</P.>
+        </sección>
+
+        <!-- Sección Acerca de -->
+        <sección  ID="Acerca-de" clase="Infosección">
+            <H2>Acerca de</H2>
+            <IMG src="https://th.bing.com/th/id/OIP.BkAVUfdnLwFbvPp0caa55QHaE7?rs=1&pid=ImgDetMain" alt="Acerca de las fiestas">
+            <P.>Las Fiestas Patronales de Juchitán son una celebración llena de vida y colores, donde se honra a San Vicente Ferrer con una serie de actividades culturales.</P.>
+        </sección>
+
+        <!-- Sección de Comentarios -->
+        <sección  ID="Comentarios" clase="info-section comments-section">
+            <H3>Comentarios</H3>
+            <textarea  Placeholder="Deja tu comentario..."></textarea>
+            <botón>Enviar Comentario</botón>
+
+            <!-- Comentarios previos -->
+            <Div. clase="Comentario">
+                <P. clase="Autor de comentarios">Juan Pérez.</P.>
+                <P. clase="texto de comentario">¡Una fiesta increíble! Disfruté mucho la comida y la música tradicional.</P.>
+ </div> 
+
+            <Div. clase="Comentario">
+                <P. clase="Autor de comentarios">María López</P.>
+                <P. clase="texto de comentario">La danza de los "Tehuanos" es simplemente espectacular. ¡No me la perderé el próximo año!</P.>
+            </Div.>
+        </sección>
+    </Div.>
+
+<<HTML Lang.="Es">lang="es"><!-- Pie de página -->
+<<cabeza>><pastel  de página estilo=" ID="pie de página">
+ <meta  charset="UTF-8"> <P.>&copiar;   2024 Fiestas Patronales de Juchitán y CBTis 205 - Todos los derechos reservados </P.>
+ <meta  nombre="viewport" contenido="ancho = ancho de dispositivo, escala inicial = 1.0"> </pie de página>
+
+ <estilo> <guión>
+           // Función para iniciar el sitio /* Estilo para la página de inicio */    
+   función   
+  documento. 100VH; getElementById('startPage').style.display = 'none'; // Ocultar la página de inicio del CBTis 105 getElementById('startPage').style.display = 'none'; // Ocultar la página de inicio del CBTis 105
+  documento. getElementById('header').style.display = 'block'; // Mostrar el encabezado getElementById('header').style.display = 'block'; // Mostrar el encabezado
+  documento. getElementById('mainContent').style.display = 'block'; // Mostrar el contenido principal getElementById('mainContent').style.display = 'block'; // Mostrar el contenido principal
+  documento. getElementById ('footer').style.display = 'block'; // Mostrar el footer getElementById('footer').style.display = 'block'; // Mostrar el footer
+  documento. url ('https://cdn.discordapp.com/attachments/1294396860743815240/1313203539241340928/IMG_20241107_164640.jpg?ex=674f4799&is=674df619&hm=08c997897e90fa118f450837bc260c9f1bf97607c18cc34804c57c19b6142f5f&') centro no repetido fijo; getElementById('inicioPage').style.display = 'none'; // Ocultar la página de inicio de las fiestas patronales getElementById('inicioPage').style.display = 'none'; // Ocultar la página de inicio de las fiestas patronales
+ } 
+
+          // Función para abrir/cerrar el menú hamburguesa 'Arial', sans-serif; // Función para abrir/cerrar el menú hamburguesa // Función para abrir/cerrar el menú hamburguesa 
+ función toggleMenu () toggleMenu () { función toggleMenu () {
+ const menu = document.getElementById ('menú'); 
+ const hamburger = document.querySelector ('.hamburger'); 
+ menú. classList.toggle (activo); inicio { classList.toggle ('active');
+ hamburguesa. classList.toggle (activo); toggle ('activo');
+ } }
+ Frontera: Ninguna; </guión>
+
+</</cuerpo>>
+</html>
